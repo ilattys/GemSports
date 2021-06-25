@@ -1,0 +1,34 @@
+.space{
+  padding: 5px;
+}
+.form-row{
+  padding-left: 25vw;
+  padding-right: 25vw;
+  margin-right: -60px;
+  margin-left: -60px;
+}
+.bg {
+  height: 50vh !important;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: white;
+}
+.reg-title {
+  padding-top: 10vh !important;
+}
+//surface duo and smaller
+@media (max-width: 540px) {
+  .bg {
+    height: 20vh !important;
+  }
+  .reg-title {
+    padding-top: 5vh !important;
+  }
+  .form-row {
+    padding-left: 20vw;
+    padding-right: 20vw;
+    margin-right: -60px;
+    margin-left: -60px;
+  }
+}

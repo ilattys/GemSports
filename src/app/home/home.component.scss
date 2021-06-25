@@ -1,0 +1,28 @@
+img {
+  width: 50%;
+  height: 50%;
+  margin-left: 25%;
+}
+.contact {
+  text-align: center;
+}
+.bg {
+  height:100% !important;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: white;
+}
+.flex-center-ind{
+  display: flex;
+  justify-content: center;
+  height: 100%;
+}
+.mr-2 {
+  padding: 1rem !important;
+}
+.hr-dark {
+  border-top: 3px solid black;
+  width: 25%;
+}
+

@@ -1,1 +1,67 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Gothic+A1&display&family=Montserrat&display=swap');
+
+.logo-color {
+  background-color: #585858 !important;
+}
+.logo-blue {
+  background-color: #24B8F3;
+  color: white !important;
+}
+.intro-header {
+  height: unset !important;
+}
+.title {
+  padding-top: 6vh;
+}
+.nav-item {
+  font-size: 16px;
+  text-align: right;
+}
+.content {
+  padding-top: 25px;
+}
+p {
+  font-size: 1.25em;
+}
+// fonts
+h2, h3, h4, h5, h6, p {
+  font-family: 'Montserrat', sans-serif;
+}
+h1 {
+  font-size: 3rem;
+  font-family: 'Gothic A1', sans-serif;
+}
+h2 {
+  letter-spacing: 5px;
+}
+// media
+@media (min-width: 850px) {
+  h1 {
+    font-size: 2.5rem !important;
+  }
+}
+.p1 {
+  padding-top: 1rem !important;
+  padding-bottom: 1rem !important;
+}
+//footer
+footer{
+  overflow: hidden;
+}
+@media (max-width: 850px) {
+  .f-space {
+    padding-top: 1rem;
+  }
+}
+//surface duo and smaller
+@media (max-width: 540px) {
+  .mobile-row {
+    padding-left: 20vw;
+    padding-right: 20vw;
+    margin-right: -60px;
+    margin-left: -60px;
+  }
+  .title{
+    padding-top: 3vh !important;
+  }
+}
