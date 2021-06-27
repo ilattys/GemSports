@@ -12,17 +12,17 @@
             <p class="p-10 mb-5 wow fadeInUp">
               The GSC Basketball Team is a competitive basketball organization consisting of girls from the Faulkner County area and other cities throughout Arkansas.
               Our goal is to showcase the talent and resilience of the best basketball players in the country and increase their likelihood of earning an athletic scholarship.
-              We will focus on fundamental training and development. The GSC is open to participation by all young women entering the 7th through 9th grade in the 2021-2022 Academic School Year.
+              We will focus on fundamental training and development. The GSC is open to participation by all young women entering the 7th through 9th grade in the 2022-2023 Academic School Year.
             </p>
-            <button type="button" mdbBtn color="dark" mdbWavesEffect (click)="openCoachForm()">Coach Application</button>
             <button type="button" mdbBtn color="dark" mdbWavesEffect (click)="openPlayerForm()">Player Registration</button>
+            <button type="button" mdbBtn color="dark" mdbWavesEffect (click)="openCoachForm()">Coach Application</button>
           </div>
           <!--Coach Form -->
           <div class="form wow fadeInLeft mt-5" *ngIf="coach" >
             <mdb-card>
               <mdb-card-header class="logo-color white-text text-center py-4">
                 <h5>
-                  <strong>Coach Registration</strong>
+                  <strong>Coach Application</strong>
                 </h5>
               </mdb-card-header>
               <mdb-card-body>
@@ -170,7 +170,7 @@
                     <mdb-icon fas icon="school" class="prefix grey-text"></mdb-icon>
                     <input mdbInput class="form-control" name="school" type="text" id="school" required
                            #school [(ngModel)]="model.school">
-                    <label for="school">School Attending in 21-22</label>
+                    <label for="school">School Attending in 2022-23</label>
                   </div>
                   <!-- jersey size -->
                   <div class="md-form select">
@@ -225,23 +225,18 @@
     </section>
   </div>
 </header>
-<footer class="page-footer font-small logo-color darken-3">
+<footer class="page-footer font-small logo-blue darken-3">
   <div class="row d-flex justify-content-between align-items-center">
-    <div class="col-lg-3 p1 text-center">
-      <h4>Questions or Comments?</h4>
-      <h5>Lets Chat!</h5>
-      <mdb-icon fas icon="comments" size="5x"></mdb-icon>
-    </div>
-    <div class="col-lg-3 text-center f-space">
+    <div class="col-lg-4 text-center f-space p1">
       <mdb-icon fas icon="phone" size="2x" class="white-text mb-2"></mdb-icon>
       <br>
       <h5>(501) 492-9671</h5>
     </div>
-    <div class="col-lg-3 text-center f-space">
+    <div class="col-lg-4 text-center f-space">
       <mdb-icon fas icon="envelope" size="2x" class="white-text mb-2"></mdb-icon>
       <h5>info@thegemsports.org</h5>
     </div>
-    <div class="col-lg-3 text-center f-space">
+    <div class="col-lg-4 text-center f-space">
       <a href="https://www.facebook.com/thegemsports" class="fb-ic">
         <mdb-icon fab icon="facebook" size="2x" class="white-text mr-2" ></mdb-icon>
       </a>
