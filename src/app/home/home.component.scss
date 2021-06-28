@@ -12,6 +12,7 @@ img {
   background-repeat: no-repeat;
   background-position: center;
   background-color: white;
+  background-image: url('../../assets/imgs/homeBG1.png');
 }
 .flex-center-ind{
   display: flex;
@@ -28,4 +29,8 @@ img {
 .same{
   width: 240px !important;
 }
-
+@media (max-width: 540px) {
+  .bg {
+    background-image: url('../../assets/imgs/homeBG2.png');
+  }
+}
