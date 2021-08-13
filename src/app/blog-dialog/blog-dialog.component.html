@@ -1,0 +1,24 @@
+<!-- blog dialog -->
+<div class="d-flex">
+  <h3 [style]="{'text-align': 'center'}">{{data.title | titlecase}}</h3>
+  <mdb-icon type="button" size="lg" [style]="{'padding-left': '10px', 'padding-top': '8px'}"
+            (click)="deleteBlog()" fas icon="trash"></mdb-icon>
+</div>
+<div *ngIf="fileError" class="error">
+  <p>Image Format Must be JPG/PNG</p>
+</div>
+<label for="title" class="col-form-label">Title</label>
+<input id="title" type="text" class="form-control" [(ngModel)]="data.title">
+<label for="subject" class="col-form-label">Subject</label>
+<input id="subject" type="text" class="form-control" [(ngModel)]="data.subject">
+<label for="body" class="col-form-label">Body</label>
+<textarea matInput id="body"
+          type="text" class="form-control" [(ngModel)]="data.body">
+</textarea>
+<div class="text-center mt-3">
+  <button class="btn" type="button" mdbBtn color="dark" mdbWavesEffect [disabled]="verifyData()" (click)="closeDialog()">Submit</button>
+  <button class="btn" type="button" mdbBtn color="dark" mdbWavesEffect (click)="cancel()">Cancel</button>
+</div>
+<img [src]="data.url" height="200"> <br/>
+<input type='file' (change)="onSelectFile($event)" accept="image/png, image/jpeg">
+<mdb-icon *ngIf="data.url" type="button" (click)="removePhoto()" fas icon="trash">Remove Photo</mdb-icon>

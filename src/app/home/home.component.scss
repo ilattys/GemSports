@@ -14,6 +14,14 @@ img {
   background-color: white;
   background-image: url('../../assets/imgs/homeBG1.png');
 }
+.bg1 {
+  height: 100% !important;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: white;
+  background-image: url('../../assets/imgs/homeBG3.png');
+}
 .flex-center-ind{
   display: flex;
   justify-content: center;
@@ -29,8 +37,14 @@ img {
 .same{
   width: 240px !important;
 }
-@media (max-width: 540px) {
-  .bg {
-    background-image: url('../../assets/imgs/homeBG2.png');
-  }
+.bg2 {
+  height: 100% !important;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: white;
+  background-image: url('../../assets/imgs/blogbg.png');
+}
+.w100 {
+  width: auto !important;
 }

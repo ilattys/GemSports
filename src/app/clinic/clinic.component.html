@@ -1,0 +1,222 @@
+<header class="intro-header">
+  <div class="view jarallax" data-jarallax='{"speed": 0.2}'>
+    <section class="pb-2">
+      <div class="bg" style="background-image: url('../../assets/imgs/clinic.png');"></div>
+      <div class="text-center reg-title">
+        <h1 class="h1 h1-reponsive wow fadeInDown">Annual Girls Basketball Clinic</h1>
+      </div>
+      <!--Section description-->
+      <div class="form-row d-flex align-items-center justify-content-center">
+        <div class="col-lg-12 my-4">
+          <div class="text-center">
+            <p class="p-10 mb-5 wow fadeInUp">
+              The Gem Sports Club presents its 1st Annual Girls Elite Basketball Skills Clinic.
+              This event is to be held at Peak Performance Academy in Conway, Ar.
+              The Elite Basketball Skills Clinic is now open for young girls ages 12-17 who aspire to play at the collegiate level.
+              We give campers and parents the truth on what it takes to make it to the next level and be a true student-athlete.
+              Our focus will be fundamentals, skills, athleticism, and mentality that will help you no matter what team or coach you play for.
+              Campers should arrive early with a positive attitude and serious work ethic!
+            </p>
+          </div>
+          <!-- Form -->
+          <div class="form wow fadeInLeft mt-5">
+            <mdb-card>
+              <!-- Child Info -->
+              <mdb-card-header class="logo-color white-text text-center py-4">
+                <h5>
+                  <strong>Child Information</strong>
+                </h5>
+              </mdb-card-header>
+              <mdb-card-body>
+                <form class="form" name="form" (ngSubmit)="f.form.valid ; f.resetForm()" #f="ngForm" novalidate>
+                  <!-- Name -->
+                  <div class="md-form">
+                    <mdb-icon fas icon="user" class="prefix grey-text"></mdb-icon>
+                    <input mdbInput class="form-control" name="cName" type="text" id="cName" required
+                           #cName [(ngModel)]="model.childName">
+                    <label for="cName">Full Name</label>
+                  </div>
+                  <!-- Age -->
+                  <div class="md-form">
+                    <mdb-icon fas icon="birthday-cake" class="prefix grey-text"></mdb-icon>
+                    <input mdbInput class="form-control" name="age" type="text" id="cAge" required
+                           #age [(ngModel)]="model.childAge">
+                    <label for="cAge">Age</label>
+                  </div>
+                  <!-- School -->
+                  <div class="md-form">
+                    <mdb-icon fas icon="school" class="prefix grey-text school"></mdb-icon>
+                    <input mdbInput class="form-control" name="cSchool" type="text" id="cSchool" required
+                           #cSchool [(ngModel)]="model.childSchool">
+                    <label for="cSchool">School Attending in 2022-23</label>
+                  </div>
+                  <!-- Coach Name -->
+                  <div class="md-form">
+                    <mdb-icon fas icon="user" class="prefix grey-text"></mdb-icon>
+                    <input mdbInput class="form-control" name="cCName" type="text" id="cCName" required
+                           #cCName [(ngModel)]="model.childCoachName">
+                    <label for="cCName">Current Coach</label>
+                  </div>
+                  <!-- Contact # -->
+                  <div class="md-form">
+                    <mdb-icon fas icon="phone" class="prefix grey-text"></mdb-icon>
+                    <input mdbInput class="form-control" name="cPhoneNo" type="text" id="cPhoneNo" required
+                           #cPhoneNo [(ngModel)]="model.childPhoneNo">
+                    <label for="cPhoneNo">Contact No.</label>
+                  </div>
+                </form>
+              </mdb-card-body>
+              <!-- Parent Info -->
+              <mdb-card-header class="logo-color white-text text-center py-4">
+                <h5>
+                  <strong>Parent Information</strong>
+                </h5>
+              </mdb-card-header>
+              <mdb-card-body>
+                <form class="form" name="form" (ngSubmit)="f.form.valid ; f.resetForm()" #f="ngForm" novalidate>
+                  <!-- Name -->
+                  <div class="md-form">
+                    <mdb-icon fas icon="user" class="prefix grey-text"></mdb-icon>
+                    <input mdbInput class="form-control" name="pName" type="text" id="pName" required
+                           #pName [(ngModel)]="model.parentName">
+                    <label for="pName">Full Name</label>
+                  </div>
+                  <!-- Contact # -->
+                  <div class="md-form">
+                    <mdb-icon fas icon="phone" class="prefix grey-text"></mdb-icon>
+                    <input mdbInput class="form-control" name="pPhoneNo" type="text" id="pPhoneNo" required
+                           #pPhoneNo [(ngModel)]="model.parentPhoneNo">
+                    <label for="pPhoneNo">Contact No.</label>
+                  </div>
+                <!-- Email -->
+                  <div class="md-form">
+                    <mdb-icon fas icon="envelope" class="prefix grey-text"></mdb-icon>
+                    <input mdbInput class="form-control" name="pEmail" type="text" id="pEmail" required
+                           #pEmail [(ngModel)]="model.parentEmail">
+                    <label for="pEmail">Email</label>
+                  </div>
+                </form>
+              </mdb-card-body>
+              <!-- Emergency Contact Info -->
+              <mdb-card-header class="logo-color white-text text-center py-4">
+                <h5>
+                  <strong>Emergency Contact Information</strong>
+                </h5>
+              </mdb-card-header>
+              <mdb-card-body>
+                <form class="form" name="form" (ngSubmit)="f.form.valid ; f.resetForm()" #f="ngForm" novalidate>
+                  <!-- Name -->
+                  <div class="md-form">
+                    <mdb-icon fas icon="user" class="prefix grey-text"></mdb-icon>
+                    <input mdbInput class="form-control" name="eCName" type="text" id="eCName" required
+                           #eCName [(ngModel)]="model.emergencyContactName">
+                    <label for="eCName">Full Name</label>
+                  </div>
+                  <!-- Contact # -->
+                  <div class="md-form">
+                    <mdb-icon fas icon="phone" class="prefix grey-text"></mdb-icon>
+                    <input mdbInput class="form-control" name="eCPhoneNo" type="text" id="eCPhoneNo" required
+                           #eCPhoneNo [(ngModel)]="model.emergencyContactPhoneNo">
+                    <label for="eCPhoneNo">Contact No.</label>
+                  </div>
+                  <!-- Relationship -->
+                  <div class="md-form select">
+                    <mdb-icon fas icon="user" class="prefix grey-text" style="padding-left: 2px;"></mdb-icon>
+                    <label for="eCRel">Relationship</label>
+                  </div>
+                  <div class="md-form">
+                    <div class="space"></div>
+                  </div>
+                  <div class="md-form">
+                    <select #eCRel [(ngModel)]="model.emergencyContactRelationship"
+                            class="form-control" name="experience" id="eCRel"
+                            placeholder="Choose Option"
+                            required type="text">
+                      <option *ngFor="let relation of relationships" [value]="relation">{{relation}}</option>
+                    </select>
+                  </div>
+                </form>
+              </mdb-card-body>
+              <!-- Additional Info -->
+              <mdb-card-header class="logo-color white-text text-center py-4">
+                <h5>
+                  <strong>Additional Information</strong>
+                </h5>
+              </mdb-card-header>
+              <mdb-card-body>
+                <form class="form" name="form" (ngSubmit)="f.form.valid ; f.resetForm()" #f="ngForm" novalidate>
+                  <!-- T-shirt size -->
+                  <div class="md-form select">
+                    <mdb-icon fas icon="tshirt" class="prefix grey-text" style="padding-left: 2px;"></mdb-icon>
+                    <label for="jersey">T-Shirt Size</label>
+                  </div>
+                  <div class="md-form">
+                    <div class="space"></div>
+                  </div>
+                  <div class="md-form">
+                    <select #jersey [(ngModel)]="model.shirtSize"
+                            class="form-control" name="experience" id="jersey"
+                            placeholder="Choose Option"
+                            required type="text">
+                      <option *ngFor="let size of sizes" [value]="size">{{size}}</option>
+                    </select>
+                  </div>
+                  <!-- Allergies -->
+                  <div class="md-form">
+                    <mdb-icon fas icon="allergies" class="prefix grey-text"></mdb-icon>
+                    <input mdbInput class="form-control" name="allergies" type="text" id="allergies" required
+                           #allergies [(ngModel)]="model.allergies">
+                    <label for="allergies">Allergies If Any</label>
+                  </div>
+                  <!-- Committed -->
+                  <div class="md-form">
+                    <mdb-icon fas icon="school" class="prefix grey-text"></mdb-icon>
+                    <label for="jersey">Committed to a College/University?</label>
+                  </div>
+                  <div class="md-form">
+                    <div class="space"></div>
+                  </div>
+                  <div class="left-text">
+                    <mdb-checkbox [default]="false" name="yes" [(ngModel)]="model.committed" checked="false" class="mb-4">Yes</mdb-checkbox>
+                    <br>
+                  </div>
+                  <!-- waiver & submit -->
+                  <div class="text-center">
+                    <button type="button" mdbBtn color="dark" mdbWavesEffect
+                            (click)="waiverDialog(model);
+                          f.resetForm() ">Download & Sign Waiver</button>
+                  </div>
+                </form>
+              </mdb-card-body>
+            </mdb-card>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</header>
+<footer class="page-footer font-small logo-blue darken-3">
+  <div class="row d-flex justify-content-between align-items-center">
+    <div class="col-lg-4 text-center f-space p1">
+      <mdb-icon fas icon="phone" size="2x" class="white-text mb-2"></mdb-icon>
+      <br>
+      <h5>(501) 492-9671</h5>
+    </div>
+    <div class="col-lg-4 text-center f-space">
+      <mdb-icon fas icon="envelope" size="2x" class="white-text mb-2"></mdb-icon>
+      <h5>info@thegemsports.org</h5>
+    </div>
+    <div class="col-lg-4 text-center f-space">
+      <a href="https://www.facebook.com/thegemsports" class="fb-ic">
+        <mdb-icon fab icon="facebook" size="2x" class="white-text mr-2" ></mdb-icon>
+      </a>
+      <a href="https://www.twitter.com/thegemsports" class="tw-ic">
+        <mdb-icon fab icon="twitter" size="2x" class="white-text mr-2"></mdb-icon>
+      </a>
+      <a href="https://www.instagram.com/thegemsports" class="ins-ic">
+        <mdb-icon fab icon="instagram" size="2x" class="white-text mr-2 mb-2"></mdb-icon>
+      </a>
+    </div>
+  </div>
+  <div class="footer-copyright text-center py-3">© 2021 TheGemSports, LLC</div>
+</footer>

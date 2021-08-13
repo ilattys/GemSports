@@ -1,0 +1,31 @@
+<mat-toolbar>
+  <mat-toolbar-row>
+    <mdb-icon type="button" fas icon="ellipsis-h" (click)="sidenav.toggle()"></mdb-icon>
+    <h2 class="ml" >Dashboard</h2>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenav>
+    <mat-nav-list>
+      <a mat-list-item [routerLink]="'/admin/blogs'"> Blogs </a>
+      <a mat-list-item> Forms </a>
+      <a mat-list-item> Website Activity </a>
+      <a mat-list-item> Create Account </a>
+      <a mat-list-item> Edit Account </a>
+      <a class="mt" mat-list-item (click)="logOut()"> Logout </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+      <div class="view jarallax bg" data-jarallax='{"speed": 0.2}'>
+        <div class="container">
+          <div class="text-center title">
+            <h1 class="h1 h1-reponsive wow fadeInDown"><strong>Welcome, Jordan!</strong></h1>
+          </div>
+      </div>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+
+

@@ -1,0 +1,22 @@
+<!-- card of blogs -->
+<h1 class="title">
+  Blogs
+</h1>
+<div *ngFor="let blog of blogs;">
+  <mat-card class="card">
+    <mat-card-header>
+      <mat-card-title>{{blog.title | titlecase}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p>
+        Date: {{blog.updateDate | date}}
+      </p>
+      <p>
+        Subject: {{blog.subject | titlecase}}
+      </p>
+      <p>
+        Body: {{blog.body}}
+      </p>
+    </mat-card-content>
+  </mat-card>
+</div>

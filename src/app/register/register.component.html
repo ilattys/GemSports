@@ -1,7 +1,7 @@
 <header class="intro-header">
   <div class="view jarallax" data-jarallax='{"speed": 0.2}'>
     <section class="pb-2">
-      <div class="bg" style="background-image: url('../../assets/imgs/regBanner.png');"></div>
+<!--      <div class="bg" style="background-image: url('../../assets/imgs/regbg2.png');"></div>-->
         <div class="text-center reg-title">
           <h1 class="h1 h1-reponsive wow fadeInDown">Sports Club Registration</h1>
         </div>
@@ -59,7 +59,7 @@
                   <div class="md-form">
                     <mdb-icon fas icon="history" class="prefix grey-text"></mdb-icon>
                     <input mdbInput class="form-control" name="pAddress" type="text" id="pAddress" required
-                           #pAddress [(ngModel)]="model.pAddress">
+                           #pAddress [(ngModel)]="model.previousAddress">
                     <label for="pAddress">Previous Address</label>
                   </div>
                   <!-- Marital Status -->
@@ -71,7 +71,7 @@
                     <div class="space"></div>
                   </div>
                   <div class="md-form">
-                    <select #mStatus [(ngModel)]="model.mStatus"
+                    <select #mStatus [(ngModel)]="model.martialStatus"
                             class="form-control" name="mStatus" id="mStatus"
                             placeholder="Choose Option"
                             required type="text">
@@ -105,20 +105,19 @@
                   <div class="md-form">
                     <mdb-icon fas icon="pencil-alt" class="prefix grey-text"></mdb-icon>
                     <textarea mdbInput class="md-textarea" name="cHistory" type="text" id="cHistory" required
-                              #cHistory [(ngModel)]="model.cHistory">
+                              #cHistory [(ngModel)]="model.coachHistory">
                   </textarea>
                     <label for="cHistory">Previous Coaching History</label>
                   </div>
                   <!-- Background Authorization -->
                   <div class="text-center">
-                    <mdb-checkbox [default]="true" name="auth" #auth checked="true" class="mb-4">Background Check Authorization</mdb-checkbox>
+                    <mdb-checkbox [default]="true" [(ngModel)]="model.coachHistory" name="auth" #auth checked="true" class="mb-4">Background Check Authorization</mdb-checkbox>
                     <br>
                   </div>
                   <!-- submit -->
                   <div class="text-center">
                     <button type="button" mdbBtn color="dark" mdbWavesEffect
-                            (click)="onSubmitCoachForm(name.value, email.value, phoneNo.value, address.value,
-                            pAddress.value, mStatus.value, occupation.value, experience.value, cHistory.value, auth.value);
+                            (click)="onSubmitCoachForm(model);
                           f.resetForm() ">Submit</button>
                   </div>
                 </form>
@@ -139,7 +138,7 @@
                   <div class="md-form">
                     <mdb-icon fas icon="user" class="prefix grey-text"></mdb-icon>
                     <input mdbInput class="form-control" name="pName" type="text" id="pName" required
-                           #pName [(ngModel)]="model.pName">
+                           #pName [(ngModel)]="playerModel.name">
                     <label for="pName">Name</label>
                   </div>
                   <!-- Grade -->
@@ -151,7 +150,7 @@
                     <div class="space"></div>
                   </div>
                   <div class="md-form">
-                    <select #grade [(ngModel)]="model.grade"
+                    <select #grade [(ngModel)]="playerModel.grade"
                             class="form-control" name="grade" id="grade"
                             placeholder="Choose Option"
                             required type="text">
@@ -162,14 +161,14 @@
                   <div class="md-form">
                     <mdb-icon fas icon="birthday-cake" class="prefix grey-text"></mdb-icon>
                     <input mdbInput class="form-control" name="age" type="text" id="age" required
-                           #age [(ngModel)]="model.age">
+                           #age [(ngModel)]="playerModel.age">
                     <label for="age">Age</label>
                   </div>
                   <!-- school -->
                   <div class="md-form">
                     <mdb-icon fas icon="school" class="prefix grey-text"></mdb-icon>
                     <input mdbInput class="form-control" name="school" type="text" id="school" required
-                           #school [(ngModel)]="model.school">
+                           #school [(ngModel)]="playerModel.school">
                     <label for="school">School Attending in 2022-23</label>
                   </div>
                   <!-- jersey size -->
@@ -181,7 +180,7 @@
                     <div class="space"></div>
                   </div>
                   <div class="md-form">
-                    <select #jersey [(ngModel)]="model.jersey"
+                    <select #jersey [(ngModel)]="playerModel.jersey"
                             class="form-control" name="experience" id="jersey"
                             placeholder="Choose Option"
                             required type="text">
@@ -192,28 +191,27 @@
                   <div class="md-form">
                     <mdb-icon fas icon="user" class="prefix grey-text"></mdb-icon>
                     <input mdbInput class="form-control" name="parName" type="text" id="parName" required
-                           #parName [(ngModel)]="model.parName">
+                           #parName [(ngModel)]="playerModel.parentName">
                     <label for="parName">Parent's Name</label>
                   </div>
                   <!-- parents email -->
                   <div class="md-form">
                     <mdb-icon fas icon="envelope" class="prefix grey-text"></mdb-icon>
                     <input mdbInput class="form-control" name="pEmail" type="text" id="pEmail" required
-                           #pEmail [(ngModel)]="model.pEmail">
+                           #pEmail [(ngModel)]="playerModel.parentEmail">
                     <label for="pEmail">Email</label>
                   </div>
                   <!-- parents contact # -->
                   <div class="md-form">
                     <mdb-icon fas icon="phone" class="prefix grey-text"></mdb-icon>
                     <input mdbInput class="form-control" name="pPhone" type="text" id="pPhone" required
-                           #pPhone [(ngModel)]="model.pPhone">
+                           #pPhone [(ngModel)]="playerModel.parentPhone">
                     <label for="pPhone">Contact No.</label>
                   </div>
                   <!-- submit -->
                   <div class="text-center">
                     <button type="button" mdbBtn color="dark" mdbWavesEffect
-                            (click)="onSubmitPlayerForm(pName.value, grade.value, age.value, school.value,
-                            jersey.value, parName.value, pEmail.value, pPhone.value);
+                            (click)="onSubmitPlayerForm(playerModel);
                           f.resetForm() ">Submit</button>
                   </div>
                 </form>

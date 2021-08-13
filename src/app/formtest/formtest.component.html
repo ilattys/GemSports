@@ -1,0 +1,25 @@
+<div class="d-flex justify-content-between">
+  <h4 href="assets/forms/Covid Waiver-Release.docx">
+    Covid Release/Waiver Form</h4>
+  <a class="pl" href="assets/forms/Covid Waiver-Release.docx" download="Covid Waiver-Release.docx">
+    <mdb-icon size="2x" type="button" mdbTooltip="Download Word Format" fas icon="file-word"></mdb-icon>
+  </a>
+  <a class="pl" href="assets/forms/Covid Waiver-Release.pdf" download="Covid Waiver-Release.pdf">
+    <mdb-icon size="2x" type="button" mdbTooltip="Download PDF Format" fas icon="file-pdf"></mdb-icon>
+  </a>
+</div>
+<br>
+<br>
+<div class="container">
+  <form [formGroup]="form">
+    <div class="form-group">
+      <div class="text-center">
+      <label for="file-upload" class="custom-file-upload">
+        <mdb-icon size="lg" class="pr" fas icon="file-upload"></mdb-icon>Upload Signed Waiver
+      </label>
+      <input id="file-upload" type="file" (change)="uploadFile($event)">
+    </div>
+    </div>
+  </form>
+</div>
+

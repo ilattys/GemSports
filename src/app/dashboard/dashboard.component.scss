@@ -1,0 +1,22 @@
+.mt {
+  margin-top: 100%;
+}
+.ml {
+  margin-left: 15px;
+}
+.bg {
+  height: 100vh !important;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: white;
+  background-image: url('../../assets/imgs/homeBG1.png');
+}
+.flex-center-ind{
+  display: flex;
+  justify-content: center;
+  height: 100%;
+}
+.title{
+  margin-top: 15vh;
+}

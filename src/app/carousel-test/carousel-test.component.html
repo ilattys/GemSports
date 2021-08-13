@@ -1,0 +1,38 @@
+<header class="intro-header">
+  <div class="view jarallax" data-jarallax='{"speed": 0.2}'>
+    <div class="container">
+      <div class="text-center title">
+        <h1 class="h1 h1-reponsive wow fadeInDown"><strong>Blogs</strong></h1>
+      </div>
+    </div>
+    <mdb-carousel [animation]="'slide'" class="carousel-multi-item multi-animation" [type]="'carousel-single-item'">
+      <ng-container>
+        <mdb-carousel-item *ngFor="let blog of blogs;">
+          <mat-card class="card">
+            <div class="col-lg-9">
+              <div class="d-flex justify-content-between pl">
+                <mat-card-title>{{blog.updateDate | date}}</mat-card-title>
+              </div>
+              <div class="d-flex tp">
+                <h4 class="b-title" [style]="{'padding-top': '5px'}">
+                  {{blog.title| titlecase}}
+                </h4>
+              </div>
+              <div class="d-flex bp">
+                <h6 class="body">
+                  {{blog.body.substr(0,150)}}...
+                </h6>
+              </div>
+              <div class="d-flex ap">
+                <mat-card-title>- {{blog.updateUser | titlecase}}</mat-card-title>
+              </div>
+            </div>
+            <div class="col-lg-3 pic ">
+              <img *ngIf="blog.url.length" [src]="blog.url">
+            </div>
+          </mat-card>
+        </mdb-carousel-item>
+      </ng-container>
+    </mdb-carousel>
+  </div>
+</header>

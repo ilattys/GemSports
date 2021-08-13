@@ -1,0 +1,38 @@
+<!--<p-card *ngIf="initialCard" header="Gem Sports Club" [style]="{width: '360px'}" styleClass="p-card-shadow">-->
+<!--    <p-button label="Login" icon="pi pi-check" (click)="showLoginCard()"></p-button>-->
+<!--    <p-button label="Create Account" icon="pi pi-times" (click)="showCreateCard()" [style]="{'margin-left': '.5em'}"></p-button>-->
+<!--</p-card>-->
+
+<!-- Create an acct -->
+<!--<p-card *ngIf="createAccountCard" header="Create New Account" [style]="{width: '360px'}" styleClass="p-card-shadow">-->
+<!--  <label for="CAusername" class="col-form-label">Username</label>-->
+<!--  <input id="CAusername" type="text" class="form-control" [(ngModel)]="username">-->
+<!--  <label for="CApassword" class="col-form-label">Password</label>-->
+<!--  <input id="CApassword" class="form-control" type="password" [(ngModel)]="password">-->
+<!--  <label for="CAVpassword" class="col-form-label">Retype Password</label>-->
+<!--  <input id="CAVpassword" class="form-control" type="password"-->
+<!--         (keyup)="$event.key === 'Enter' ? createAccount() : null"-->
+<!--         [(ngModel)]="verifyPassword">-->
+<!--  <ng-template pTemplate="footer">-->
+<!--    <p-button label="Create Account" icon="pi pi-check" (click)="createAccount()"></p-button>-->
+<!--    <p-button label="Cancel" icon="pi pi-times" (click)="closeCards()" [style]="{'margin-left': '.5em'}"></p-button>-->
+<!--  </ng-template>-->
+<!--</p-card>-->
+
+<!-- Login -->
+<div class="align-items-center justify-content-center">
+  <p-card *ngIf="loginCard" header="Gem Sports Club" styleClass="p-card-shadow mt-5">
+    <label for="username" class="col-form-label">Username</label>
+    <input id="username" type="text" class="form-control" [(ngModel)]="username">
+    <label for="password" class="col-form-label">Password</label>
+    <input id="password" class="form-control" type="password"
+           (keyup)="$event.key === 'Enter' ? logIn() : null"
+           [(ngModel)]="password">
+    <ng-template pTemplate="footer">
+      <button class="btn" type="button" mdbBtn color="dark" mdbWavesEffect (click)="logIn()">Login</button>
+      <!--    <p-button label="Cancel" icon="pi pi-times" (onClick)="closeCards()" [style]="{'margin-left': '.5em'}"></p-button>-->
+    </ng-template>
+  </p-card>
+</div>
+
+

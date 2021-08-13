@@ -65,3 +65,16 @@ footer{
     padding-top: 3vh !important;
   }
 }
+//blog carousel
+.carousel .carousel-control-next-icon, .carousel .carousel-control-prev-icon {
+  background-color: grey;
+}
+.carousel-control-next {
+  right: 0;
+  padding-left: 20px;
+}
+.carousel-control-prev {
+  left: 0;
+  padding-right: 20px;
+
+}
