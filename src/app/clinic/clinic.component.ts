@@ -27,6 +27,10 @@ export class ClinicComponent implements OnInit {
   }
 
   waiverDialog(model: ClinicForm): void {
+    if (!model.childName && !model.childAge){
+      this.homeService.log('error', 'Please Enter Child Information');
+      return;
+    }
     this.appendFormData(model);
     const dialogRef = this.dialog.open(FormtestComponent, {
       width: 'auto',
@@ -78,6 +82,7 @@ export class ClinicComponent implements OnInit {
     });
     this.form.get('waiver').updateValueAndValidity();
     this.formData.append('waiver', this.form.get('waiver').value);
+    debugger
     this.homeService.submitClinicForm(this.formData);
   }
 }
