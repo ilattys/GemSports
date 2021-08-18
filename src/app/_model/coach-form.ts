@@ -8,4 +8,5 @@ export class CoachForm {
   public occupation: string;
   public experience: string;
   public coachHistory: string;
+  public authorization: string;
 }
