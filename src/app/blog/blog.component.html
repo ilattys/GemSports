@@ -1,22 +1,52 @@
-<!-- card of blogs -->
-<h1 class="title">
-  Blogs
-</h1>
-<div *ngFor="let blog of blogs;">
-  <mat-card class="card">
-    <mat-card-header>
-      <mat-card-title>{{blog.title | titlecase}}</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
+<header class="intro-header">
+  <div class="view jarallax" data-jarallax='{"speed": 0.2}'>
+    <div class="container">
+      <div class="title">
+        <h1 class="h1 h1-reponsive wow fadeInDown text-center"><strong>{{blog.title | titlecase}}</strong></h1>
+        <div class="subject">
+          <h4>{{blog.subject | titlecase}}</h4>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <h5>{{blog.updateUser | titlecase}}</h5>
+      <h6 class="subject">{{blog.createDate | date}}</h6>
+    </div>
+    <div class="container pt-3">
+      <div class="row d-flex align-items-center justify-content-center">
+        <img [src]="blog.url">
+      </div>
+    </div>
+    <div class="container pt-5 mb-5 show-white-space">
       <p>
-        Date: {{blog.updateDate | date}}
+        {{blog.body}}
       </p>
-      <p>
-        Subject: {{blog.subject | titlecase}}
-      </p>
-      <p>
-        Body: {{blog.body}}
-      </p>
-    </mat-card-content>
-  </mat-card>
-</div>
+    </div>
+  </div>
+</header>
+
+<footer class="page-footer font-small logo-blue darken-3">
+  <div class="row d-flex justify-content-between align-items-center">
+    <div class="col-lg-4 text-center f-space p1">
+      <mdb-icon fas icon="phone" size="2x" class="white-text mb-2"></mdb-icon>
+      <br>
+      <h5>(501) 492-9671</h5>
+    </div>
+    <div class="col-lg-4 text-center f-space">
+      <mdb-icon fas icon="envelope" size="2x" class="white-text mb-2"></mdb-icon>
+      <h5>info@thegemsports.org</h5>
+    </div>
+    <div class="col-lg-4 text-center f-space">
+      <a href="https://www.facebook.com/thegemsports" class="fb-ic">
+        <mdb-icon fab icon="facebook" size="2x" class="white-text mr-2" ></mdb-icon>
+      </a>
+      <a href="https://www.twitter.com/thegemsports" class="tw-ic">
+        <mdb-icon fab icon="twitter" size="2x" class="white-text mr-2"></mdb-icon>
+      </a>
+      <a href="https://www.instagram.com/thegemsports" class="ins-ic">
+        <mdb-icon fab icon="instagram" size="2x" class="white-text mr-2 mb-2"></mdb-icon>
+      </a>
+    </div>
+  </div>
+  <div class="footer-copyright text-center py-3">© 2021 TheGemSports, LLC</div>
+</footer>

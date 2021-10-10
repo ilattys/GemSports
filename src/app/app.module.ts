@@ -24,9 +24,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { ClinicComponent } from './clinic/clinic.component';
-import { FormtestComponent } from './formtest/formtest.component';
+import { FileUploadDialogComponent } from './file-upload-dialog/file-upload-dialog.component';
 import { ThankYouComponent } from './thank-you/thank-you.component';
-import { CarouselTestComponent } from './carousel-test/carousel-test.component';
+import { CarouselComponent } from './carousel/carousel.component';
 import {CardModule} from 'primeng/card';
 
 @NgModule({
@@ -42,9 +42,9 @@ import {CardModule} from 'primeng/card';
     BlogComponent,
     BlogListComponent,
     ClinicComponent,
-    FormtestComponent,
+    FileUploadDialogComponent,
     ThankYouComponent,
-    CarouselTestComponent,
+    CarouselComponent,
   ],
   imports: [
     BrowserModule,

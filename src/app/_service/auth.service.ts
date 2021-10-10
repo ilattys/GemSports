@@ -3,6 +3,7 @@ import { UserCredential } from '../_model/UserCredential';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
+import {HomeService} from './home.service';
 
 
 @Injectable({
@@ -16,8 +17,7 @@ export class AuthService {
   public user: UserCredential;
   test: any;
 
-  constructor(private http: HttpClient, private router: Router) {
-    debugger
+  constructor(private http: HttpClient, private router: Router, private homeService: HomeService) {
     this.instance = localStorage.getItem('instance');
     if (this.instance === null || this.instance === undefined) {
       this.loggedIn.next(false);
@@ -40,11 +40,13 @@ export class AuthService {
       (response) => {
         if (response === null){
           console.log('Invalid Credentials');
+          this.homeService.log('error', 'Invalid Credentials');
           this.loggedIn.next(false);
           return;
         }
         if (response.response === 'Account Verified'){
           console.log('Account Verified');
+          this.homeService.log('success', 'Account Verified');
           this.loggedIn.next(true);
           const instance = this.createInstance();
           localStorage.setItem('instance', instance);
@@ -58,7 +60,7 @@ export class AuthService {
   }
 
   private buildUrl(controller): any{
-    return `https://localhost:44307/api/Authenticate/` + controller;
+    return `https://localhost:44393/api/Authenticate/` + controller;
   }
 
   logOut(): void {

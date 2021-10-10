@@ -3,18 +3,19 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { MessageService } from './message.service';
 import { Observable } from 'rxjs';
 import { BlogDb } from '../_model/blogDb';
-import { ClinicForm } from '../_model/clinic-form';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HomeService {
 
-  public clinicForm: ClinicForm;
+  public selectedBlog: BlogDb;
 
   constructor(private http: HttpClient,
               private messageService: MessageService
-  ) { }
+  ) {
+    this.selectedBlog = new BlogDb();
+  }
 
   submitCoachForm(coachForm): void {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
@@ -53,11 +54,13 @@ export class HomeService {
   }
 
   createBlog(blog): void {
+    debugger
     const url = this.buildUrl('CreateBlog');
     console.log(JSON.stringify(blog));
 
     this.http.post<any>(url, blog).subscribe(
       (response) => {
+        debugger
         if (response.response === 'Blog Created'){
           this.log('success', 'Blog Created');
         }
@@ -73,6 +76,7 @@ export class HomeService {
 
   updateBlog(blog): void {
     const url = this.buildUrl('UpdateBlog');
+    console.log(blog);
     this.http.post<any>(url, blog).subscribe(
       (response) => {
         if (response.response === 'Blog Updated'){
@@ -111,7 +115,7 @@ export class HomeService {
   }
 
   private buildUrl(controller): any{
-    return `https://localhost:44307/api/Blog/` + controller;
+    return `https://localhost:44348/api/Blog/` + controller;
   }
 
   submitClinicForm(form): void {
@@ -126,5 +130,9 @@ export class HomeService {
       }
     );
 
+  }
+
+  getSelectedBlog(): BlogDb {
+    return this.selectedBlog;
   }
 }

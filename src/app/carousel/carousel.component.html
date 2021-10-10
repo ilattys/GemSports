@@ -8,7 +8,7 @@
     <mdb-carousel [animation]="'slide'" class="carousel-multi-item multi-animation" [type]="'carousel-single-item'">
       <ng-container>
         <mdb-carousel-item *ngFor="let blog of blogs;">
-          <mat-card class="card">
+          <mat-card (click)="viwBlog(blog)" class="card" type="button">
             <div class="col-lg-9">
               <div class="d-flex justify-content-between pl">
                 <mat-card-title>{{blog.updateDate | date}}</mat-card-title>

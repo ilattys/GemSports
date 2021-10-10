@@ -1,24 +1,35 @@
 <!-- blog dialog -->
 <div class="d-flex">
   <h3 [style]="{'text-align': 'center'}">{{data.title | titlecase}}</h3>
-  <mdb-icon type="button" size="lg" [style]="{'padding-left': '10px', 'padding-top': '8px'}"
-            (click)="deleteBlog()" fas icon="trash"></mdb-icon>
+  <mdb-icon *ngIf="deleteIcon" type="button" size="lg" [style]="{'padding-left': '10px', 'padding-top': '8px'}"
+            (click)="deleteBlog()" mdbTooltip="Delete Blog" fas icon="trash"></mdb-icon>
 </div>
-<div *ngIf="fileError" class="error">
-  <p>Image Format Must be JPG/PNG</p>
+<div *ngIf="blogError" class="error">
+  <p>{{errorMessage}}Image Format Must be JPG/PNG</p>
 </div>
 <label for="title" class="col-form-label">Title</label>
 <input id="title" type="text" class="form-control" [(ngModel)]="data.title">
 <label for="subject" class="col-form-label">Subject</label>
 <input id="subject" type="text" class="form-control" [(ngModel)]="data.subject">
 <label for="body" class="col-form-label">Body</label>
-<textarea matInput id="body"
-          type="text" class="form-control" [(ngModel)]="data.body">
-</textarea>
-<div class="text-center mt-3">
-  <button class="btn" type="button" mdbBtn color="dark" mdbWavesEffect [disabled]="verifyData()" (click)="closeDialog()">Submit</button>
-  <button class="btn" type="button" mdbBtn color="dark" mdbWavesEffect (click)="cancel()">Cancel</button>
+<textarea matInput id="body" type="text" class="form-control ta"
+          matAutosizeMinRows=5 [(ngModel)]="data.body"></textarea>
+<div class="d-flex justify-content-center mt-3">
+  <img [src]="data.url" height="200">
 </div>
-<img [src]="data.url" height="200"> <br/>
-<input type='file' (change)="onSelectFile($event)" accept="image/png, image/jpeg">
-<mdb-icon *ngIf="data.url" type="button" (click)="removePhoto()" fas icon="trash">Remove Photo</mdb-icon>
+<div class="d-flex justify-content-center mt-3">
+  <label for="file-upload" class="custom-file-upload">
+    <mdb-icon fas icon="image" mdbTooltip="Upload Photo">Add Photo</mdb-icon>
+  </label>
+  <input class="mt-3" id="file-upload" type='file' (change)="onSelectFile($event)" accept="image/png, image/jpeg">
+  <label class="custom-file-upload btn-pr" *ngIf="data.url" (click)="removePhoto()" type="button"
+          mdbTooltip="Remove Photo" mdbWavesEffect>
+    <mdb-icon  type="button" (click)="removePhoto()" fas icon="trash">Remove Photo</mdb-icon>
+  </label>
+
+</div>
+  <div class="text-center mt-3">
+    <button class="btn" type="button" mdbBtn color="dark" mdbWavesEffect [disabled]="verifyData()" (click)="closeDialog()">Submit</button>
+    <button class="btn" type="button" mdbBtn color="dark" mdbWavesEffect (click)="cancel()">Cancel</button>
+    <button class="btn" type="button" mdbBtn color="dark" mdbWavesEffect (click)="viewBlog()">View Blog</button>
+  </div>

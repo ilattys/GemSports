@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HomeService } from '../_service/home.service';
 import { ClinicForm } from '../_model/clinic-form';
 import { MatDialog } from '@angular/material/dialog';
-import { FormtestComponent } from '../formtest/formtest.component';
+import { FileUploadDialogComponent } from '../file-upload-dialog/file-upload-dialog.component';
 import { HttpClient } from '@angular/common/http';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
@@ -32,7 +32,7 @@ export class ClinicComponent implements OnInit {
       return;
     }
     this.appendFormData(model);
-    const dialogRef = this.dialog.open(FormtestComponent, {
+    const dialogRef = this.dialog.open(FileUploadDialogComponent, {
       width: 'auto',
       height: 'auto',
       maxHeight: '100vh',

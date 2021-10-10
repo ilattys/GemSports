@@ -12,20 +12,28 @@ export class BlogDialogComponent implements OnInit {
 
   submitDisabled: boolean;
   url: any;
-  fileError: boolean;
+  blogError: boolean;
+  deleteIcon: boolean;
+  errorMessage: any;
 
   constructor(public dialogRef: MatDialogRef<BlogDialogComponent>, private homeService: HomeService,
               @Inject(MAT_DIALOG_DATA) public data: BlogDb) {}
 
   ngOnInit(): void {
     this.submitDisabled = true;
+    if (this.data.title === 'Create A New Blog'){
+      this.deleteIcon = false;
+    }
+    else {
+      this.deleteIcon = true;
+    }
   }
 
   onSelectFile(event): void {
     console.log(event.target.files[0].type);
     if (event.target.files && event.target.files[0]) {
       if (event.target.files[0].type === 'image/png' || event.target.files[0].type === 'image/jpeg') {
-        this.fileError = false;
+        this.blogError = false;
         const reader = new FileReader();
         this.data.urlName = event.target.files[0].name;
         reader.readAsDataURL(event.target.files[0]);
@@ -34,7 +42,7 @@ export class BlogDialogComponent implements OnInit {
         };
       }
       else {
-        this.fileError = true;
+        this.blogError = true;
         this.data.url = '';
         this.data.urlName = '';
       }
@@ -50,16 +58,13 @@ export class BlogDialogComponent implements OnInit {
   }
 
   verifyData(): boolean {
-    if (!this.checkData(this.data.title)){
-      return true;
-    }
-    if (!this.checkData(this.data.subject)){
+    if (!this.checkTitle(this.data.title)){
       return true;
     }
     if (!this.checkData(this.data.body)){
       return true;
     }
-    if (this.fileError === true) {  // submit without image
+    if (this.blogError === true) {  // submit without image
       return true;
     }
     return false;
@@ -72,6 +77,16 @@ export class BlogDialogComponent implements OnInit {
     return true;
   }
 
+  private checkTitle(data): boolean {
+    if (data === null || data === undefined){
+      return false;
+    }
+    if (data.length > 100){
+      return false;
+    }
+    return true;
+  }
+
   removePhoto(): void {
     this.data.url = '';
     this.data.urlName = '';
@@ -79,6 +94,11 @@ export class BlogDialogComponent implements OnInit {
 
   deleteBlog(): void {
     this.data.delete = true;
+    this.closeDialog();
+  }
+
+  viewBlog(): void {
+    this.data.view = true;
     this.closeDialog();
   }
 }

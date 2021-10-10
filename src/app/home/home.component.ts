@@ -1,4 +1,5 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
+import {HomeService} from '../_service/home.service';
 
 @Component({
   selector: 'app-home',
@@ -6,8 +7,30 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  constructor(){}
+  blogs: boolean;
+
+  constructor(private homeService: HomeService){
+    // debugger
+    // window.addEventListener('beforeunload', (event) => {
+    //   event.returnValue = `You have unsaved changes, leave anyway????????`;
+    // });
+  }
 
   ngOnInit(): void {
+    this.homeService.getAllBlogs().subscribe(blogs => {
+      debugger
+      if (blogs){
+        debugger
+        this.blogs = true;
+      }
+    });
   }
+
+  // @HostListener('window:beforeunload', ['$event'])
+  // unloadHandler(event: Event): void {
+  //   // Your logic on beforeunload
+  //   debugger
+  //   console.log('here');
+  //
+  // }
 }

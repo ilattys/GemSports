@@ -68,6 +68,7 @@ footer{
 //blog carousel
 .carousel .carousel-control-next-icon, .carousel .carousel-control-prev-icon {
   background-color: grey;
+  color: white;
 }
 .carousel-control-next {
   right: 0;
@@ -77,4 +78,8 @@ footer{
   left: 0;
   padding-right: 20px;
 
+}
+
+#cdk-overlay-0 {
+  max-width: 90vw !important;
 }

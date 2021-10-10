@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {BlogDb} from '../_model/blogDb';
-import {HomeService} from '../_service/home.service';
+import { BlogDb } from '../_model/blogDb';
+import { HomeService } from '../_service/home.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-blog',
@@ -9,22 +10,16 @@ import {HomeService} from '../_service/home.service';
 })
 export class BlogComponent implements OnInit {
 
-  blogs: BlogDb[];
+  blog: BlogDb;
 
-  constructor(private homeService: HomeService) {
-    this.blogs = [];
+  constructor(private homeService: HomeService, private router: Router) {
+    this.blog = new BlogDb();
   }
 
   ngOnInit(): void {
-    this.homeService.getAllBlogs().subscribe(blogs => {
-      if (blogs){
-        this.blogs = [];
-        blogs.forEach(b => this.blogs.push(b));
-      }
-      else {
-        this.homeService.log('info', 'No Blogs currently posted');
-      }
-    });
+    this.blog = this.homeService.getSelectedBlog();
+    if (this.blog.blogId === undefined){
+      this.router.navigateByUrl('home').then();
+    }
   }
-
 }

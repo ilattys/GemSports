@@ -22,6 +22,7 @@ export class BlogListComponent implements OnInit {
   urlName: string;
   blog: BlogDb;
   delete: boolean;
+  view: boolean;
 
   constructor(private homeService: HomeService, public dialog: MatDialog,
               private authService: AuthService, private router: Router) {
@@ -36,9 +37,13 @@ export class BlogListComponent implements OnInit {
   ngOnInit(): void {
     this.displayDialog = false;
     this.homeService.getAllBlogs().subscribe(blogs => {
+      debugger
       if (blogs){
         this.blogs = [];
         blogs.forEach(b => this.blogs.push(b));
+      }
+      else {
+        this.homeService.log('error', 'No blogs found');
       }
     });
   }
@@ -72,7 +77,8 @@ export class BlogListComponent implements OnInit {
     this.blog = result;
     this.blog.url = url;
     this.homeService.createBlog(this.blog);
-    this.blogs.push(this.blog);
+    // window.location.reload();
+    this.blogs.push(this.blog); // refresh page
   }
 
   editBlogDialog(blog): void {
@@ -82,13 +88,16 @@ export class BlogListComponent implements OnInit {
       maxHeight: '100vh',
       data: {
         title: blog.title, subject: blog.subject, body: blog.body, url: blog.url,
-        urlName: blog.urlName, delete: this.delete
+        urlName: blog.urlName, delete: this.delete, view: this.view
       }
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result){
         if (result.delete){
-          //delete blog
+          this.deleteBlog(blog);
+        }
+        if (result.view){
+          this.viewBlog(blog);
         }
         else {
           this.updateBlog(result, blog);
@@ -116,15 +125,18 @@ export class BlogListComponent implements OnInit {
     this.blog.url = url;
     this.blog.urlName = urlName;
     this.homeService.updateBlog(this.blog);
-    const index = this.blogs.indexOf(blog);
-    this.blogs[index] = blog;
+    window.location.reload();
+
+    // const index = this.blogs.indexOf(blog);
+    // this.blogs[index] = blog;
   }
 
   deleteBlog(blog): void {
     const request = this.homeService.buildDeleteRequest(blog.blogId, blog.urlName);
     this.homeService.deleteBlog(request);
     const index = this.blogs.indexOf(blog);
-    this.blogs.splice(index, 1);
+    window.location.reload();
+    // this.blogs.splice(index, 1);
   }
 
   private formatUrl(url): string {
@@ -140,5 +152,10 @@ export class BlogListComponent implements OnInit {
     }
 
     return currentEntry[1];
+  }
+
+  private viewBlog(blog): void {
+    this.homeService.selectedBlog = blog;
+    this.router.navigateByUrl('blog/' + blog.blogId).then();
   }
 }

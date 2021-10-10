@@ -11,4 +11,5 @@ export class BlogDb {
   public createDate: string;
   public updateDate: string;
   public delete?: boolean;
+  public view?: boolean;
 }
