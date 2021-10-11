@@ -61,6 +61,8 @@ export class AuthService {
 
   private buildUrl(controller): any{
     return `https://gemauthservice.azurewebsites.net/api/Authenticate/` + controller;
+    // return `https://localhost:44348/api/Authenticate/` + controller;
+
   }
 
   logOut(): void {

@@ -114,6 +114,8 @@ export class HomeService {
 
   private buildUrl(controller): any{
     return `https://gemauthservice.azurewebsites.net/api/Blog/` + controller;
+    // return `https://localhost:44348/api/Blog/` + controller;
+
   }
 
   submitClinicForm(form): void {
