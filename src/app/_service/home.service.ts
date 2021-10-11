@@ -54,13 +54,11 @@ export class HomeService {
   }
 
   createBlog(blog): void {
-    debugger
     const url = this.buildUrl('CreateBlog');
     console.log(JSON.stringify(blog));
 
     this.http.post<any>(url, blog).subscribe(
       (response) => {
-        debugger
         if (response.response === 'Blog Created'){
           this.log('success', 'Blog Created');
         }
@@ -115,7 +113,7 @@ export class HomeService {
   }
 
   private buildUrl(controller): any{
-    return `https://localhost:44348/api/Blog/` + controller;
+    return `https://gemauthservice.azurewebsites.net/api/Blog/` + controller;
   }
 
   submitClinicForm(form): void {

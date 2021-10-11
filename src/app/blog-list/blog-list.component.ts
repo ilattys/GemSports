@@ -37,7 +37,6 @@ export class BlogListComponent implements OnInit {
   ngOnInit(): void {
     this.displayDialog = false;
     this.homeService.getAllBlogs().subscribe(blogs => {
-      debugger
       if (blogs){
         this.blogs = [];
         blogs.forEach(b => this.blogs.push(b));
@@ -77,8 +76,8 @@ export class BlogListComponent implements OnInit {
     this.blog = result;
     this.blog.url = url;
     this.homeService.createBlog(this.blog);
-    // window.location.reload();
-    this.blogs.push(this.blog); // refresh page
+    window.location.reload();
+    // this.blogs.push(this.blog); // refresh page
   }
 
   editBlogDialog(blog): void {

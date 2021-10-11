@@ -17,9 +17,7 @@ export class CarouselComponent implements OnInit {
 
   ngOnInit(): void {
     this.homeService.getAllBlogs().subscribe(blogs => {
-      debugger
       if (blogs) {
-        debugger
         this.blogs = [];
         blogs.forEach(b => this.blogs.push(b));
       }
