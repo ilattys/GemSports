@@ -76,7 +76,7 @@ export class BlogListComponent implements OnInit {
     this.blog = result;
     this.blog.url = url;
     this.homeService.createBlog(this.blog);
-    // window.location.reload();
+    window.location.reload();
     // this.blogs.push(this.blog); // refresh page
   }
 
